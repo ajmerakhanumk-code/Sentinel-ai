@@ -1,0 +1,38 @@
+{
+  "accuracy": 0.9733,
+  "macro_precision": 0.9753,
+  "macro_recall": 0.9733,
+  "macro_f1": 0.9733,
+  "classes": [
+    "Positive",
+    "Negative",
+    "Neutral"
+  ],
+  "features": [
+    "smile_curvature",
+    "mouth_aspect_ratio",
+    "brow_furrow_index",
+    "eye_aperture_ratio",
+    "lip_corner_depression"
+  ],
+  "confusion_matrix": [
+    [
+      23,
+      0,
+      2
+    ],
+    [
+      0,
+      25,
+      0
+    ],
+    [
+      0,
+      0,
+      25
+    ]
+  ],
+  "train_samples": 225,
+  "test_samples": 75,
+  "algorithm": "StandardScaler + Multiclass Logistic Regression on FACS Action Units"
+}

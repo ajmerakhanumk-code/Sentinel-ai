@@ -1,0 +1,385 @@
+/* SENTINEL AI - Dark Command Centre Interface Styling */
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --bg-base: #080B11;
+    --bg-secondary: #0E131F;
+    --bg-card: #141B2D;
+    --bg-card-hover: #1A233A;
+    --border-color: #212C45;
+    --border-highlight: #00F0FF;
+    --cyan: #00F0FF;
+    --cyan-glow: rgba(0, 240, 255, 0.18);
+    --green: #00E676;
+    --green-glow: rgba(0, 230, 118, 0.18);
+    --amber: #FFB300;
+    --red: #FF3366;
+    --red-glow: rgba(255, 51, 102, 0.18);
+    --text-primary: #F1F5F9;
+    --text-secondary: #94A3B8;
+    --text-muted: #64748B;
+    --mono-font: 'JetBrains Mono', monospace;
+    --sans-font: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Global App Container */
+html, body, [data-testid="stAppViewContainer"] {
+    background-color: var(--bg-base) !important;
+    color: var(--text-primary) !important;
+    font-family: var(--sans-font) !important;
+}
+
+/* Header & Main Padding */
+.main .block-container {
+    padding-top: 1.5rem !important;
+    padding-bottom: 3rem !important;
+    max-width: 1400px !important;
+}
+
+/* Streamlit Header & Toolbar Overrides */
+header[data-testid="stHeader"] {
+    background: transparent !important;
+}
+
+/* Custom Navigation Header */
+.sentinel-header {
+    background: linear-gradient(180deg, rgba(14, 19, 31, 0.95) 0%, rgba(8, 11, 17, 0.95) 100%);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1.25rem 1.75rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sentinel-brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.sentinel-logo-badge {
+    background: rgba(0, 240, 255, 0.08);
+    border: 1px solid var(--cyan);
+    color: var(--cyan);
+    font-family: var(--mono-font);
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    padding: 0.35rem 0.75rem;
+    border-radius: 4px;
+    box-shadow: 0 0 12px var(--cyan-glow);
+}
+
+.sentinel-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: #FFFFFF;
+    margin: 0;
+    line-height: 1.1;
+}
+
+.sentinel-subtitle {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    font-family: var(--mono-font);
+    letter-spacing: 0.05em;
+    margin-top: 0.2rem;
+}
+
+/* Telemetry & HUD Cards */
+.hud-panel {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.25rem;
+    margin-bottom: 1.25rem;
+    position: relative;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hud-panel:hover {
+    border-color: rgba(0, 240, 255, 0.4);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+}
+
+.hud-title {
+    font-family: var(--mono-font);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--cyan);
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.hud-title::before {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: var(--cyan);
+    border-radius: 1px;
+}
+
+/* Metric Widgets */
+.metric-box {
+    background: rgba(14, 19, 31, 0.8);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 1rem;
+    text-align: left;
+}
+
+.metric-label {
+    font-size: 0.72rem;
+    font-family: var(--mono-font);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-bottom: 0.3rem;
+}
+
+.metric-value {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.1;
+    font-family: var(--mono-font);
+}
+
+.metric-value.cyan { color: var(--cyan); }
+.metric-value.green { color: var(--green); }
+.metric-value.amber { color: var(--amber); }
+.metric-value.red { color: var(--red); }
+
+/* Status Badges */
+.status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--mono-font);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.65rem;
+    border-radius: 9999px;
+    letter-spacing: 0.05em;
+}
+
+.status-pill.online {
+    background: rgba(0, 230, 118, 0.12);
+    border: 1px solid rgba(0, 230, 118, 0.5);
+    color: var(--green);
+}
+
+.status-pill.idle {
+    background: rgba(0, 240, 255, 0.1);
+    border: 1px solid rgba(0, 240, 255, 0.4);
+    color: var(--cyan);
+}
+
+.status-pill.alert {
+    background: rgba(255, 51, 102, 0.12);
+    border: 1px solid rgba(255, 51, 102, 0.5);
+    color: var(--red);
+}
+
+.status-pill.neutral {
+    background: rgba(148, 163, 184, 0.12);
+    border: 1px solid rgba(148, 163, 184, 0.3);
+    color: var(--text-secondary);
+}
+
+.status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: currentColor;
+    display: inline-block;
+}
+
+/* Streamlit Tabs Navigation */
+.stTabs [data-baseweb="tab-list"] {
+    gap: 0.5rem;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    padding: 0.35rem;
+    border-radius: 8px;
+}
+
+.stTabs [data-baseweb="tab"] {
+    background-color: transparent !important;
+    border-radius: 6px !important;
+    border: none !important;
+    color: var(--text-secondary) !important;
+    font-family: var(--mono-font) !important;
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+    padding: 0.6rem 1.2rem !important;
+    transition: all 0.2s ease !important;
+}
+
+.stTabs [data-baseweb="tab"]:hover {
+    color: var(--text-primary) !important;
+    background-color: rgba(255, 255, 255, 0.03) !important;
+}
+
+.stTabs [aria-selected="true"] {
+    background-color: var(--bg-card) !important;
+    color: var(--cyan) !important;
+    border: 1px solid var(--border-color) !important;
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.12) !important;
+}
+
+/* Streamlit Input Overrides - Pure White Text Entry Box with Black Text */
+.stTextInput > div > div > input,
+.stTextArea > div > div > textarea,
+div[data-baseweb="textarea"],
+div[data-baseweb="base-input"],
+div[data-baseweb="input"] {
+    background-color: #FFFFFF !important;
+    color: #000000 !important;
+    caret-color: #000000 !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 6px !important;
+    font-family: var(--sans-font) !important;
+    font-size: 0.95rem !important;
+}
+
+.stTextInput input,
+.stTextArea textarea {
+    background-color: #FFFFFF !important;
+    color: #000000 !important;
+    caret-color: #000000 !important;
+}
+
+.stTextInput input::placeholder,
+.stTextArea textarea::placeholder {
+    color: #808080 !important;
+    -webkit-text-fill-color: #808080 !important;
+    opacity: 1 !important;
+}
+
+.stTextInput > div > div > input:focus,
+.stTextArea > div > div > textarea:focus,
+div[data-baseweb="textarea"]:focus-within,
+div[data-baseweb="base-input"]:focus-within {
+    border-color: var(--cyan) !important;
+    box-shadow: 0 0 0 1px var(--cyan) !important;
+    background-color: #FFFFFF !important;
+    color: #000000 !important;
+}
+
+/* Custom Buttons */
+.stButton > button {
+    background: linear-gradient(180deg, #1A253C 0%, #101726 100%) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 6px !important;
+    font-family: var(--mono-font) !important;
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.03em !important;
+    padding: 0.55rem 1.25rem !important;
+    transition: all 0.2s ease !important;
+}
+
+.stButton > button:hover {
+    border-color: var(--cyan) !important;
+    color: var(--cyan) !important;
+    box-shadow: 0 0 12px var(--cyan-glow) !important;
+}
+
+.stButton > button:active {
+    transform: translateY(1px);
+}
+
+/* Special Primary Action Button */
+.primary-btn button {
+    background: linear-gradient(180deg, rgba(0, 240, 255, 0.2) 0%, rgba(0, 240, 255, 0.05) 100%) !important;
+    border: 1px solid var(--cyan) !important;
+    color: var(--cyan) !important;
+    box-shadow: 0 0 14px var(--cyan-glow) !important;
+}
+
+/* Academic Disclaimer Callout */
+.disclaimer-banner {
+    background: rgba(14, 19, 31, 0.9);
+    border-left: 3px solid var(--amber);
+    border-top: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: 0.9rem 1.25rem;
+    border-radius: 4px;
+    margin: 1.5rem 0;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: var(--text-secondary);
+}
+
+.disclaimer-banner strong {
+    color: var(--amber);
+    font-family: var(--mono-font);
+    font-size: 0.82rem;
+    letter-spacing: 0.05em;
+}
+
+/* Multimodal Comparison Matrix */
+.matrix-card {
+    background: #0E131F;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.25rem;
+    text-align: center;
+}
+
+.matrix-card.match {
+    border-color: var(--green);
+    background: rgba(0, 230, 118, 0.04);
+}
+
+.matrix-card.divergence {
+    border-color: var(--amber);
+    background: rgba(255, 179, 0, 0.04);
+}
+
+.matrix-card.conflict {
+    border-color: var(--red);
+    background: rgba(255, 51, 102, 0.04);
+}
+
+/* Progress and Bar Overrides */
+.stProgress > div > div > div > div {
+    background-color: var(--cyan) !important;
+}
+
+/* Markdown tables */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1rem 0;
+    font-size: 0.88rem;
+}
+
+th {
+    background: #111827;
+    color: var(--cyan);
+    font-family: var(--mono-font);
+    text-align: left;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid var(--border-color);
+}
+
+td {
+    padding: 0.55rem 0.8rem;
+    border: 1px solid var(--border-color);
+    background: #0B0F19;
+}
